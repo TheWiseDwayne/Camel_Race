@@ -10,7 +10,7 @@ public class Application extends GraphicsProgram {
     public static final int WINDOW_WIDTH = 900;
     public static final int WINDOW_HEIGHT = 700;
     public static final int REFRESH = 60;
-    public static final double META = WINDOW_WIDTH*0.90;
+    public static final double GOAL = WINDOW_WIDTH*0.90;
     public static ArrayList <Camel> players = new ArrayList<Camel>();
     public static ArrayList <Camel> playOFF = new ArrayList<Camel>();
 
@@ -47,7 +47,7 @@ public class Application extends GraphicsProgram {
     // Function that creates and returns the GRect of the goal object
     public GRect goalCreation(){
         GRect goal = new GRect(1, players.get(players.size()-1).getSpacer().getY());
-        goal.setLocation(META,0);
+        goal.setLocation(GOAL,0);
         goal.setColor(Color.RED);
         return goal;
     }
@@ -64,7 +64,7 @@ public class Application extends GraphicsProgram {
                  */
                 camel.getImage().setLocation(camel.getPositionX(), WINDOW_HEIGHT - camel.getPositionY());//Moviment
 
-                if (camel.getPositionX() >= META- players.get(0).getImage().getWidth()) {
+                if (camel.getPositionX() >= GOAL - players.get(0).getImage().getWidth()) {
                     playOFF.add(camel);
                     finalists = true; //change the state of the variable to determine that there is already a winner
                 }
